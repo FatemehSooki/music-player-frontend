@@ -1,14 +1,14 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import { GiMusicSpell } from "react-icons/gi";
+import Sekuya from '@/lib/fonts.js'
 import "./globals.css";
+import PlayerProvider from "./context/PlayerContext";
+import MusicPlayer from "@/components/MusicPlayer";
+import Developer from "@/components/developer";
+import Search from "@/components/Search";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const Outfit = localFont({
+  src: "../fonts/Outfit-Regular.ttf",
 });
 
 export const metadata = {
@@ -20,9 +20,26 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className='h-full antialiased'
     >
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
+      <body className={`${Outfit.className}  min-h-full flex flex-col`}>
+        <PlayerProvider>
+          <div className='w-full flex justify-center items-center gap-3'>
+            <GiMusicSpell className='text-[#1DB954] text-[50px]' />
+            <h1 className={`${Sekuya.className} text-[#1DB954] text-[60px] text-center bg-zinc-950 font-bold`}>SFATIFY</h1>
+          </div>
+
+
+          <div className="absolute z-10 left-6 top-20 -translate-y-1/2">
+            <Developer />
+          </div>
+
+          <Search />
+
+          {children}
+          <MusicPlayer />
+        </PlayerProvider>
+      </body>
+    </html >
   );
 }

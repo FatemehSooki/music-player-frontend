@@ -1,0 +1,34 @@
+import React from 'react'
+import STRAPI_URL from '@/lib/api'
+import TopArtists from '@/components/TopArtists'
+
+export default async function page() {
+  const res = await fetch(`${STRAPI_URL}/api/songs?populate=*&pagination[pageSize]=100`)
+  const para = await res.json()
+  const artists = [...new Set(para.data.map(song => song.artist))]
+
+  return (
+    <div className='w-full min-h-screen bg-zinc-950 px-4 sm:px-8 py-10'>
+      <div className='max-w-7xl mx-auto'>
+        <h1 className='text-3xl sm:text-4xl font-bold text-white mb-8 tracking-tight'>
+          All Artists
+        </h1>
+        
+
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6'>
+          {artists?.map((artistName) => {
+            const artistSong = para.data.find(s => s.artist === artistName)
+            return (
+              <TopArtists
+                key={artistName}
+                artist={artistName}
+                image={`${STRAPI_URL}${artistSong.artistCover?.url || artistSong.cover.url}`}
+                href={`/artists/${encodeURIComponent(artistName)}`}
+              />
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  )
+}
