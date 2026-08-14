@@ -17,7 +17,7 @@ export default async function page({ params }) {
   <h1 className='text-4xl font-bold text-white mb-8 capitalize'>{decodedArtist}</h1>
   <div className='flex flex-wrap gap-4'>
     {artistSongs && artistSongs.map((song, i) => (
-     <SongCards allSongs={artistSongs} index={i} key={song.documentId} duration={song.duration} title={song.title} src={`${STRAPI_URL}${song.cover.url}`} artist={song.artist} audio={`${STRAPI_URL}${song.audio.url}`}   />
+     <SongCards allSongs={artistSongs} index={i} key={song.documentId} duration={song.duration} title={song.title} src={song.cover} artist={song.artist} audio={song.audio}   />
     ))}
   </div>
 </div>

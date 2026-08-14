@@ -16,7 +16,7 @@ const decodedGenre = decodeURIComponent(genre)
    <h1 className='text-4xl font-bold m-10 ml-16 w-full text-[50px] capitalize'>{decodedGenre}</h1>
    {filterSong.map((val, i) => {
     return (
-     <SongCards allSongs={filterSong} index={i} key={val.documentId} duration={val.duration} title={val.title} src={`${STRAPI_URL}${val.cover.url}`} artist={val.artist} audio={`${STRAPI_URL}${val.audio.url}`}   />
+     <SongCards allSongs={filterSong} index={i} key={val.documentId} duration={val.duration} title={val.title} src={val.cover} artist={val.artist} audio={val.audio}   />
     )
    })}
   </div>

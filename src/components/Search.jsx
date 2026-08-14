@@ -39,8 +39,8 @@ export default function Search() {
     setCurrentSong({
       title: song.title,
       artist: song.artist,
-      cover: `${STRAPI_URL}${song.cover.url}`,
-      audio: `${STRAPI_URL}${song.audio.url}`,
+      cover: song.cover,
+      audio: song.audio,
       duration: song.duration,
 
     })
@@ -71,9 +71,9 @@ export default function Search() {
                     allSongs={result}
                     duration={song.duration}
                     title={song.title}
-                    src={`${STRAPI_URL}${song.cover.url}`}
+                    src={song.cover}
                     artist={song.artist}
-                    audio={`${STRAPI_URL}${song.audio.url}`}
+                    audio={song.audio}
                   />
                 ))}
               </div>

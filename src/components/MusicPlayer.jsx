@@ -83,8 +83,8 @@ const handleMusicClick = (e)=> {
    setCurrentSong({
     title: next.title,
     artist: next.artist,
-    cover: `${STRAPI_URL}${next.cover.url}`,
-    audio: `${STRAPI_URL}${next.audio.url}`,
+    cover: next.cover,
+    audio: next.audio,
     duration: next.duration
    })
   }
@@ -99,8 +99,8 @@ const handleMusicClick = (e)=> {
    setCurrentSong({
     title: prev.title,
     artist: prev.artist,
-    cover: `${STRAPI_URL}${prev.cover.url}`,
-    audio: `${STRAPI_URL}${prev.audio.url}`,
+    cover: prev.cover,
+    audio: prev.audio,
     duration: prev.duration
    })
   }

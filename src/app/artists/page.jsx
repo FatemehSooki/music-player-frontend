@@ -22,7 +22,7 @@ export default async function page() {
               <TopArtists
                 key={artistName}
                 artist={artistName}
-                image={`${STRAPI_URL}${artistSong.artistCover?.url || artistSong.cover.url}`}
+                image={artistSong.artistCover || artistSong.cover}
                 href={`/artists/${encodeURIComponent(artistName)}`}
               />
             )

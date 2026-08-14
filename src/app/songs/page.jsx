@@ -13,7 +13,7 @@ const para = await res.json()
 
    <div className="flex flex-wrap justify-evenly gap-3">
     {para.data && para.data.map((song, i) => (
-     <SongCards allSongs={para.data} index={i} key={song.documentId}  duration={song.duration} title={song.title} src={`${STRAPI_URL}${song.cover.url}`} artist={song.artist} audio={`${STRAPI_URL}${song.audio.url}`}   />
+     <SongCards allSongs={para.data} index={i} key={song.documentId}  duration={song.duration} title={song.title} src={song.cover} artist={song.artist} audio={song.audio}   />
     ))}
    </div>
   </main>

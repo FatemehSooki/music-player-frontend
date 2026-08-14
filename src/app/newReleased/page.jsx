@@ -20,9 +20,9 @@ export default async function page() {
             key={song.documentId}
             duration={song.duration}
             title={song.title}
-            src={`${STRAPI_URL}${song.cover.url}`}
+            src={song.cover}
             artist={song.artist}
-            audio={`${STRAPI_URL}${song.audio.url}`}
+            audio={song.audio}
           />
         ))}
       </div>

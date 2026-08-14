@@ -52,9 +52,9 @@ export default async function page() {
                   allSongs={para.data}
                   duration={topSong.duration}
                   title={topSong.title}
-                  src={`${STRAPI_URL}${topSong.cover.url}`}
+                  src={topSong.cover}
                   artist={topSong.artist}
-                  audio={`${STRAPI_URL}${topSong.audio.url}`}
+                  audio={topSong.audio}
                   artistCover={topSong.artistCover}
                 />
               ))}
@@ -84,9 +84,9 @@ export default async function page() {
                   allSongs={para2.data}
                   duration={newsong.duration}
                   title={newsong.title}
-                  src={`${STRAPI_URL}${newsong.cover.url}`}
+                  src={newsong.cover}
                   artist={newsong.artist}
-                  audio={`${STRAPI_URL}${newsong.audio.url}`}
+                  audio={newsong.audio}
                   artistCover={newsong.artistCover}
                 />
               ))}
@@ -112,7 +112,7 @@ export default async function page() {
                   <TopArtists
                     key={artistName}
                     artist={artistName}
-                    image={`${STRAPI_URL}${artistSong.artistCover.url}`}
+                    image={artistSong.artistCover}
                     href={`/artists/${encodeURIComponent(artistName)}`}
                   />
                 )
