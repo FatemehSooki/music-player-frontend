@@ -1,5 +1,5 @@
-export const dynamic = 'force-dynamic'
 'use client'
+export const dynamic = 'force-dynamic'
 import React, { useEffect, useState } from 'react'
 import STRAPI_URL from '@/lib/api'
 import { usePlayer } from '@/app/context/PlayerContext'
