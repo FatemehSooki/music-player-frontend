@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import React from 'react'
 import STRAPI_URL from '@/lib/api'
 import SongCards from '@/components/SongCards'

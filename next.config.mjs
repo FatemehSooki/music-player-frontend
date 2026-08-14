@@ -5,12 +5,17 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "localhost",
-        port: "1337",
-        pathname: "/uploads/**",
+        protocol: "https",
+        hostname: "*.supabase.co",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "music-player-backend-bobe.onrender.com",
+        pathname: "/**",
       },
     ],
+    unoptimized: true,
   },
 };
 
