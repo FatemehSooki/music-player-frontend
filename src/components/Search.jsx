@@ -1,38 +1,52 @@
 'use client'
-export const dynamic = 'force-dynamic'
+
 import React, { useEffect, useState } from 'react'
 import STRAPI_URL from '@/lib/api'
 import { usePlayer } from '@/app/context/PlayerContext'
 import SongCards from './SongCards'
 
-
 export default function Search() {
   const [query, setQuery] = useState('')
   const [result, setResult] = useState([])
   const [showRes, setShowRes] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if (query == '') {
+    if (query === '') {
       setResult([])
       setShowRes(false)
-    } else {
-      let timer = setTimeout(async () => {
-        const res = await fetch(`${STRAPI_URL}/api/songs?filters[$or][0][title][$containsi]=${query}&filters[$or][1][artist][$containsi]=${query}&populate=*`)
-        const para = await res.json()
-
-        setResult(para.data || [])
-        setShowRes(true)
-      }, 300);
-
-      return () => clearTimeout(timer)
+      return
     }
 
+    setLoading(true)
+    const timer = setTimeout(async () => {
+      try {
+        const res = await fetch(
+          `${STRAPI_URL}/api/songs?filters[$or][0][title][$containsi]=${query}&filters[$or][1][artist][$containsi]=${query}&populate=*`
+        )
+        
+        if (!res.ok) {
+          console.error('API error:', res.status, res.statusText)
+          setResult([])
+          setShowRes(true)
+          return
+        }
 
+        const para = await res.json()
+        console.log('Search results:', para.data?.length || 0)
+        setResult(para.data || [])
+        setShowRes(true)
+      } catch (err) {
+        console.error('Fetch error:', err)
+        setResult([])
+        setShowRes(true)
+      } finally {
+        setLoading(false)
+      }
+    }, 300)
 
-
+    return () => clearTimeout(timer)
   }, [query])
-
-
 
   const { setCurrentSong, setIsVisible } = usePlayer()
 
@@ -43,20 +57,26 @@ export default function Search() {
       cover: song.cover,
       audio: song.audio,
       duration: song.duration,
-
     })
-
     setIsVisible(true)
     setQuery('')
     setShowRes(false)
   }
 
-
   return (
     <div className="relative w-full flex justify-center">
-      <input onChange={(e) => setQuery(e.target.value)} value={query} className='p-3 rounded-full flex h-[60px] w-[40%] bg-zinc-700 pl-5 relative z-50 justify-center' type="text" placeholder='Search...' />
+      <input 
+        onChange={(e) => {
+          console.log('Typing:', e.target.value)
+          setQuery(e.target.value)
+        }} 
+        value={query} 
+        className='p-3 rounded-full flex h-[60px] w-[40%] bg-zinc-700 pl-5 relative z-50 justify-center' 
+        type="text" 
+        placeholder='Search...' 
+      />
 
-
+      {loading && <p className="text-white absolute top-20">Loading...</p>}
 
       {showRes && (
         <div className="fixed inset-0 z-40 bg-zinc-950 pt-24 px-8 overflow-y-auto">
@@ -84,7 +104,6 @@ export default function Search() {
           </div>
         </div>
       )}
-
     </div>
   )
 }
