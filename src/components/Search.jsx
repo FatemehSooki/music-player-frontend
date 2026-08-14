@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 'use client'
 import React, { useEffect, useState } from 'react'
 import STRAPI_URL from '@/lib/api'
