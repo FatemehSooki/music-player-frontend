@@ -1,12 +1,11 @@
 'use client'
-
 import Link from 'next/link'
-import { useState } from 'react'
-import { FaHome, FaMusic } from "react-icons/fa"
-import { TbMusicSearch } from "react-icons/tb"
-import { IoIosArrowDown, IoMdMenu, IoMdClose } from "react-icons/io"
+import React, { useState } from 'react'
+import { FaHome, FaMusic } from "react-icons/fa";
+import { TbMusicSearch } from "react-icons/tb";
+import { IoIosArrowDown, IoMdMenu, IoMdClose } from "react-icons/io";
 
-export default function MobileNav() {
+export default function Header() {
   const [openAcc, setOpenAcc] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 

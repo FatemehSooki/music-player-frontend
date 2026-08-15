@@ -24,36 +24,62 @@ export default function Developer() {
         <span className="absolute bottom-0 right-0 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-emerald-500 border-2 border-zinc-900 rounded-full"></span>
       </button>
 
-
-      <div className={`absolute left-2 sm:left-8 md:left-12 top-14 sm:top-16 md:top-20 w-52 sm:w-60 md:w-64 bg-zinc-900/95 backdrop-blur-2xl border border-white/[0.08] rounded-2xl p-3 sm:p-4 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] transition-all duration-300 origin-top-right z-50 ${isOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-90 -translate-y-2 pointer-events-none'}`}>
-        
+      {/* Desktop Dropdown - bottom right of image */}
+      <div className={`hidden md:block absolute left-12 top-20 w-64 bg-zinc-900/95 backdrop-blur-2xl border border-white/[0.08] rounded-2xl p-4 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] transition-all duration-300 origin-top-right z-50 ${isOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-90 -translate-y-2 pointer-events-none'}`}>
         <div className="absolute -inset-px bg-emerald-500/10 rounded-2xl blur-lg -z-10"></div>
-        
-        <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-white/10">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-12 h-12 rounded-full overflow-hidden border border-white/10">
             <Image src="me.jpg" alt="Developer" width={48} height={48} className="object-cover w-full h-full" unoptimized />
           </div>
           <div>
-            <h3 className="text-white font-bold text-sm sm:text-base">Fatemeh Sooki</h3>
-            <p className="text-emerald-400 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider">Frontend Developer</p>
+            <h3 className="text-white font-bold text-base">Fatemeh Sooki</h3>
+            <p className="text-emerald-400 text-[11px] font-semibold uppercase tracking-wider">Frontend Developer</p>
           </div>
         </div>
-
         <div className="grid grid-cols-3 gap-2">
-          <a href="https://www.linkedin.com/in/fatemeh-sooki-197060396?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 bg-zinc-800 hover:bg-[#0077b5] text-zinc-400 hover:text-white py-2 sm:py-2.5 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            <FaLinkedin className="text-base sm:text-lg" />
-            <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/fatemeh-sooki-197060396?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 bg-zinc-800 hover:bg-[#0077b5] text-zinc-400 hover:text-white py-2.5 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <FaLinkedin className="text-lg" />
+            <span className="text-[9px] font-bold uppercase tracking-wider">LinkedIn</span>
           </a>
-          <a href="https://github.com/FatemehSooki" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white py-2 sm:py-2.5 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            <FaGithub className="text-base sm:text-lg" />
-            <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider">GitHub</span>
+          <a href="https://github.com/FatemehSooki" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white py-2.5 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <FaGithub className="text-lg" />
+            <span className="text-[9px] font-bold uppercase tracking-wider">GitHub</span>
           </a>
-          <a href="https://www.instagram.com/fatemeh_sooki?igsh=MXM4ZHBrNW55bmF0cQ==" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 bg-zinc-800 hover:bg-[#E4405F] text-zinc-400 hover:text-white py-2 sm:py-2.5 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            <FaInstagram className="text-base sm:text-lg" />
-            <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider">Insta</span>
+          <a href="https://www.instagram.com/fatemeh_sooki?igsh=MXM4ZHBrNW55bmF0cQ==" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 bg-zinc-800 hover:bg-[#E4405F] text-zinc-400 hover:text-white py-2.5 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <FaInstagram className="text-lg" />
+            <span className="text-[9px] font-bold uppercase tracking-wider">Insta</span>
           </a>
         </div>
       </div>
+
+      {/* Mobile Dropdown - top left of image */}
+      <div className={`md:hidden absolute bottom-full right-0 mb-2 w-56 bg-zinc-900/95 backdrop-blur-2xl border border-white/[0.08] rounded-2xl p-3 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] transition-all duration-300 origin-bottom-right z-50 ${isOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-90 translate-y-2 pointer-events-none'}`}>
+        <div className="absolute -inset-px bg-emerald-500/10 rounded-2xl blur-lg -z-10"></div>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10">
+            <Image src="me.jpg" alt="Developer" width={48} height={48} className="object-cover w-full h-full" unoptimized />
+          </div>
+          <div>
+            <h3 className="text-white font-bold text-sm">Fatemeh Sooki</h3>
+            <p className="text-emerald-400 text-[10px] font-semibold uppercase tracking-wider">Frontend Developer</p>
+          </div>
+        </div>
+        <div className="grid grid-cols-3 gap-2">
+          <a href="https://www.linkedin.com/in/fatemeh-sooki-197060396?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 bg-zinc-800 hover:bg-[#0077b5] text-zinc-400 hover:text-white py-2 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <FaLinkedin className="text-base" />
+            <span className="text-[8px] font-bold uppercase tracking-wider">LinkedIn</span>
+          </a>
+          <a href="https://github.com/FatemehSooki" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white py-2 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <FaGithub className="text-base" />
+            <span className="text-[8px] font-bold uppercase tracking-wider">GitHub</span>
+          </a>
+          <a href="https://www.instagram.com/fatemeh_sooki?igsh=MXM4ZHBrNW55bmF0cQ==" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 bg-zinc-800 hover:bg-[#E4405F] text-zinc-400 hover:text-white py-2 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <FaInstagram className="text-base" />
+            <span className="text-[8px] font-bold uppercase tracking-wider">Insta</span>
+          </a>
+        </div>
+      </div>
+
     </div>
   )
 }

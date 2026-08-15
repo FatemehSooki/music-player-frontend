@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
             <Developer />
           </div>
 
-   
+
           <Header />
 
           <Search />
