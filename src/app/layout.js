@@ -1,3 +1,4 @@
+'use client'
 import localFont from "next/font/local";
 import { GiMusicSpell } from "react-icons/gi";
 import Sekuya from '@/lib/fonts.js'
