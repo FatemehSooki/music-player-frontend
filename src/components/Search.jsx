@@ -71,20 +71,20 @@ export default function Search() {
           setQuery(e.target.value)
         }} 
         value={query} 
-        className='p-3 rounded-full flex h-[60px] w-[40%] bg-zinc-700 pl-5 relative z-50 justify-center' 
+        className='p-2.5 sm:p-3 rounded-full flex h-12 sm:h-14 md:h-[60px] w-[85%] sm:w-[60%] md:w-[50%] lg:w-[40%] bg-zinc-700 pl-4 sm:pl-5 relative z-50 justify-center' 
         type="text" 
         placeholder='Search...' 
       />
 
-      {loading && <p className="text-white absolute top-20">Loading...</p>}
+      {loading && <p className="text-white absolute top-16 sm:top-20">Loading...</p>}
 
       {showRes && (
-        <div className="fixed inset-0 z-40 bg-zinc-950 pt-24 px-8 overflow-y-auto">
+        <div className="fixed inset-0 z-40 bg-zinc-950 pt-20 sm:pt-24 px-4 sm:px-6 md:px-8 overflow-y-auto">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl font-bold text-white mb-6 mt-15">Results for "{query}"</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 mt-10 sm:mt-14 md:mt-16">Results for "{query}"</h2>
 
             {result.length > 0 ? (
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap justify-center sm:justify-start gap-4">
                 {result.map((song, i) => (
                   <SongCards
                     key={song.documentId}
@@ -99,7 +99,7 @@ export default function Search() {
                 ))}
               </div>
             ) : (
-              <p className="text-zinc-400 text-lg mt-15">No results found</p>
+              <p className="text-zinc-400 text-base sm:text-lg mt-10 sm:mt-14 md:mt-16">No results found</p>
             )}
           </div>
         </div>

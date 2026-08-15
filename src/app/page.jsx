@@ -29,14 +29,16 @@ export default async function page() {
 
   return (
     <main className='bg-zinc-950 w-full min-h-screen'>
-      <div className='w-full mt-10 flex justify-between gap-3 px-3'>
-        <Sidebar />
+      <div className='w-full mt-10 flex flex-col lg:flex-row justify-between gap-3 px-3'>
+        <div className="hidden lg:block shrink-0">
+          <Sidebar />
+        </div>
 
         {/* top songs */}
-        <div className='w-[73%] bg-zinc-900 rounded-2xl p-6 flex flex-col gap-8 mb-10'>
+        <div className='w-full lg:w-[73%] bg-zinc-900 rounded-2xl p-4 md:p-6 flex flex-col gap-6 md:gap-8 mb-10'>
           <section className='w-full flex flex-col gap-4'>
             <div className='flex items-center justify-between'>
-              <div className='flex items-center gap-2 text-[18px]'>
+              <div className='flex items-center gap-2 text-base md:text-[18px]'>
                 <FaFireAlt />
                 <h2 className='uppercase font-semibold tracking-wide'>top songs</h2>
               </div>
@@ -45,7 +47,7 @@ export default async function page() {
               </Link>
             </div>
 
-            <div className='flex flex-wrap gap-4'>
+            <div className='flex flex-wrap gap-4 justify-center sm:justify-start'>
               {slicedSong && slicedSong.map((topSong, i) => (
                 <SongCards
                   key={topSong.documentId}
@@ -68,7 +70,7 @@ export default async function page() {
           {/* new released */}
           <section className='w-full flex flex-col gap-4'>
             <div className='flex items-center justify-between'>
-              <div className='flex items-center gap-2 text-[18px]'>
+              <div className='flex items-center gap-2 text-base md:text-[18px]'>
                 <GiVineWhip />
                 <h2 className='uppercase font-semibold tracking-wide'>new released</h2>
               </div>
@@ -77,7 +79,7 @@ export default async function page() {
               </Link>
             </div>
 
-            <div className='flex flex-wrap gap-4'>
+            <div className='flex flex-wrap gap-4 justify-center sm:justify-start'>
               {slicedSong2 && slicedSong2.map((newsong, i) => (
                 <SongCards
                   key={newsong.documentId}
@@ -97,7 +99,7 @@ export default async function page() {
           {/* top artists */}
           <section className='w-full flex flex-col gap-4'>
             <div className='flex items-center justify-between'>
-              <div className='flex items-center gap-2 text-[18px]'>
+              <div className='flex items-center gap-2 text-base md:text-[18px]'>
                 <GiMusicalScore />
                 <h2 className='uppercase font-semibold tracking-wide'>top artists</h2>
               </div>
@@ -106,7 +108,7 @@ export default async function page() {
               </Link>
             </div>
 
-            <div className='flex flex-wrap justify-evenly gap-4'>
+            <div className='flex flex-wrap justify-center sm:justify-evenly gap-4'>
               {uniqeArtists && uniqeArtists.map((artistName, i) => {
                 const artistSong = para.data.find(s => s.artist === artistName)
                 return (

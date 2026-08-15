@@ -123,10 +123,10 @@ const handleMusicClick = (e)=> {
    <audio onTimeUpdate={handleTime} ref={audioRef} src={currentSong.audio} onEnded={nextSong} className="hidden" />
 
    {/* Card */}
-   <div className="relative w-[520px] rounded-[28px] border border-white/[0.06] bg-zinc-900/80 backdrop-blur-2xl shadow-[0_32px_100px_rgba(0,0,0,0.6)] px-10 py-10 transition-all duration-500 hover:shadow-[0_32px_100px_rgba(0,0,0,0.7)]">
+   <div className="relative w-[92vw] sm:w-[460px] md:w-[520px] max-w-[520px] rounded-2xl sm:rounded-[28px] border border-white/[0.06] bg-zinc-900/80 backdrop-blur-2xl shadow-[0_32px_100px_rgba(0,0,0,0.6)] px-5 py-6 sm:px-8 sm:py-8 md:px-10 md:py-10 transition-all duration-500 hover:shadow-[0_32px_100px_rgba(0,0,0,0.7)]">
 
     {/* Close */}
-    <button onClick={() => setIsVisible(false)} className="absolute right-6 top-6 rounded-full p-2 text-zinc-500 transition-all duration-300 hover:bg-white/5 hover:text-white hover:rotate-90">
+    <button onClick={() => setIsVisible(false)} className="absolute right-4 top-4 sm:right-6 sm:top-6 rounded-full p-2 text-zinc-500 transition-all duration-300 hover:bg-white/5 hover:text-white hover:rotate-90">
      <FaTimes size={20} />
     </button>
 
@@ -140,7 +140,7 @@ const handleMusicClick = (e)=> {
        alt={currentSong.title}
        width={220}
        height={220}
-  className={`relative h-56 w-56 rounded-full border-[3px] border-white/[0.08] object-cover shadow-[0_0_50px_rgba(255,255,255,0.06)] transition-transform duration-700 hover:scale-[1.03] hover:border-white/[0.15] animate-spin-slow ${
+  className={`relative h-36 w-36 sm:h-48 sm:w-48 md:h-56 md:w-56 rounded-full border-[3px] border-white/[0.08] object-cover shadow-[0_0_50px_rgba(255,255,255,0.06)] transition-transform duration-700 hover:scale-[1.03] hover:border-white/[0.15] animate-spin-slow ${
     !isPlaying ? 'paused' : ''
   }`}
        unoptimized
@@ -152,17 +152,17 @@ const handleMusicClick = (e)=> {
     </div>
 
     {/* Song Info */}
-    <div className="mt-8 text-center">
-     <h2 className="text-[28px] font-bold tracking-tight text-white transition-colors duration-300">
+    <div className="mt-5 sm:mt-6 md:mt-8 text-center">
+     <h2 className="text-xl sm:text-2xl md:text-[28px] font-bold tracking-tight text-white transition-colors duration-300">
       {currentSong.title}
      </h2>
-     <p className="mt-1.5 text-base font-medium text-zinc-400 transition-colors duration-300 hover:text-zinc-300 cursor-default">
+     <p className="mt-1.5 text-sm sm:text-base font-medium text-zinc-400 transition-colors duration-300 hover:text-zinc-300 cursor-default">
       {currentSong.artist}
      </p>
     </div>
 
     {/* Time */}
-    <div className="mt-7 flex justify-between text-xs font-medium tracking-wider text-zinc-500 uppercase">
+    <div className="mt-5 sm:mt-6 md:mt-7 flex justify-between text-xs font-medium tracking-wider text-zinc-500 uppercase">
      <span>{formatTime(currentTime)}</span>
      <span>{formatTime(currentSong.duration)}</span>
     </div>
@@ -175,14 +175,14 @@ const handleMusicClick = (e)=> {
     </div>
 
     {/* Controls */}
-    <div className="mt-9 flex items-center justify-center gap-10">
+    <div className="mt-6 sm:mt-7 md:mt-9 flex items-center justify-center gap-6 sm:gap-8 md:gap-10">
 
-     <button onClick={previousSong} className="text-[28px] text-zinc-400 transition-all duration-200 hover:scale-110 hover:text-white active:scale-95">
+     <button onClick={previousSong} className="text-xl sm:text-2xl md:text-[28px] text-zinc-400 transition-all duration-200 hover:scale-110 hover:text-white active:scale-95">
       <IoPlaySkipBack />
      </button>
 
      {/* Play Button */}
-     <button onClick={musicToggle} className="group/play relative flex h-[72px] w-[72px] items-center justify-center rounded-full bg-white text-zinc-900 shadow-[0_8px_30px_rgba(255,255,255,0.25)] transition-all duration-300 hover:scale-105 hover:shadow-[0_12px_40px_rgba(255,255,255,0.35)] active:scale-95">
+     <button onClick={musicToggle} className="group/play relative flex h-14 w-14 sm:h-16 sm:w-16 md:h-[72px] md:w-[72px] items-center justify-center rounded-full bg-white text-zinc-900 shadow-[0_8px_30px_rgba(255,255,255,0.25)] transition-all duration-300 hover:scale-105 hover:shadow-[0_12px_40px_rgba(255,255,255,0.35)] active:scale-95">
       {isPlaying ?
        (
         <FaPause size={24} className="transition-transform duration-300 group-hover/play:scale-110" />
@@ -192,22 +192,22 @@ const handleMusicClick = (e)=> {
       }
 
 
-      {/* Ripple ring animation */}
+      {/*ring animation */}
       <span className="absolute inset-0 rounded-full border border-white/20 animate-ping opacity-20" />
      </button>
 
-     <button onClick={nextSong} className="text-[28px] text-zinc-400 transition-all duration-200 hover:scale-110 hover:text-white active:scale-95">
+     <button onClick={nextSong} className="text-xl sm:text-2xl md:text-[28px] text-zinc-400 transition-all duration-200 hover:scale-110 hover:text-white active:scale-95">
       <IoPlaySkipForward />
      </button>
     </div>
 
     {/* Volume */}
-    <div className="mt-8 flex items-center justify-center gap-4">
+    <div className="mt-6 sm:mt-7 md:mt-8 flex items-center justify-center gap-4">
      <button className="text-zinc-500 transition-colors duration-200 hover:text-zinc-300">
       <FaVolumeUp size={16} />
      </button>
 
-     <div onClick={handleVolumeClick} className="group relative h-1.5 w-28 cursor-pointer overflow-hidden rounded-full bg-zinc-800">
+     <div onClick={handleVolumeClick} className="group relative h-1.5 w-20 sm:w-24 md:w-28 cursor-pointer overflow-hidden rounded-full bg-zinc-800">
       <div style={{ width: `${volume * 100}%` }} className="h-full w-3/4 rounded-full bg-zinc-500 transition-all duration-300 group-hover:bg-emerald-500">
        <div className="absolute right-0 top-1/2 h-2.5 w-2.5 -translate-y-1/2 translate-x-1/2 rounded-full bg-white opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100" />
       </div>

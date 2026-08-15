@@ -9,14 +9,14 @@ export default async function page() {
   const artists = [...new Set(para.data.map(song => song.artist))]
 
   return (
-    <div className='w-full min-h-screen bg-zinc-950 px-4 sm:px-8 py-10'>
+    <div className='w-full min-h-screen bg-zinc-950 px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10'>
       <div className='max-w-7xl mx-auto'>
-        <h1 className='text-3xl sm:text-4xl font-bold text-white mb-8 tracking-tight'>
+        <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 sm:mb-7 md:mb-8 tracking-tight'>
           All Artists
         </h1>
         
 
-        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6'>
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5 md:gap-6'>
           {artists?.map((artistName) => {
             const artistSong = para.data.find(s => s.artist === artistName)
             return (

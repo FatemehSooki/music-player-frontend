@@ -24,13 +24,13 @@ export default function RootLayout({ children }) {
     >
       <body className={`${Outfit.className}  min-h-full flex flex-col`}>
         <PlayerProvider>
-          <div className='w-full flex justify-center items-center gap-3'>
-            <GiMusicSpell className='text-[#1DB954] text-[50px]' />
-            <h1 className={`${Sekuya.className} text-[#1DB954] text-[60px] text-center bg-zinc-950 font-bold`}>SFATIFY</h1>
+          <div className='w-full flex justify-center items-center gap-2 sm:gap-3 px-4 sm:px-0 py-2 sm:py-0'>
+            <GiMusicSpell className='text-[#1DB954] text-3xl sm:text-4xl md:text-5xl lg:text-[50px]' />
+            <h1 className={`${Sekuya.className} text-[#1DB954] text-4xl sm:text-5xl md:text-6xl lg:text-[60px] text-center bg-zinc-950 font-bold`}>SFATIFY</h1>
           </div>
 
 
-          <div className="absolute z-10 left-6 top-20 -translate-y-1/2">
+          <div className="absolute z-10 left-3 sm:left-4 md:left-6 top-16 sm:top-20 -translate-y-1/2">
             <Developer />
           </div>
 

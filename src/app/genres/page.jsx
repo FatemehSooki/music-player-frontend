@@ -21,13 +21,13 @@ export default async function page() {
  ]
 
  return (
-  <div className='w-full flex flex-wrap gap-6 justify-evenly my-10 *:my-3'>
+  <div className='w-full flex flex-wrap gap-4 md:gap-6 justify-center sm:justify-evenly my-6 md:my-10 px-4 md:px-6 lg:px-8 *:my-3'>
    {genres.map((val, i) => {
     return (
      <Link key={val} href={`/genres/${val}`}>
-      <div className={`relative w-[200px] h-[200px] rounded-2xl ${colors[i % colors.length]} flex justify-center items-center cursor-pointer transition-shadow duration-300 hover:shadow-xl hover:shadow-black/60`}>
-       <IoMusicalNote className='text-[80px] opacity-20 text-white' />
-       <h3 className='absolute z-10 text-center text-white text-[20px] capitalize font-bold'>{val}</h3>
+      <div className={`relative w-[140px] h-[140px] sm:w-[170px] sm:h-[170px] md:w-[200px] md:h-[200px] rounded-2xl ${colors[i % colors.length]} flex justify-center items-center cursor-pointer transition-shadow duration-300 hover:shadow-xl hover:shadow-black/60`}>
+       <IoMusicalNote className='text-[50px] sm:text-[65px] md:text-[80px] opacity-20 text-white' />
+       <h3 className='absolute z-10 text-center text-white text-sm sm:text-base md:text-[20px] capitalize font-bold'>{val}</h3>
       </div>
      </Link>
     )

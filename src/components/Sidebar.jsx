@@ -47,7 +47,7 @@ export default function Sidebar() {
  ];
 
  return (
-   <div className="w-[25%] sticky top-10 self-start h-screen max-h-[calc(100vh-5rem)] bg-zinc-900 rounded-2xl p-5 border border-white/[0.06] shadow-xl overflow-y-auto">
+   <div className="w-[25%] sticky top-10 self-start h-screen max-h-[calc(100vh-5rem)] bg-zinc-900 rounded-2xl p-4 md:p-5 border border-white/[0.06] shadow-xl overflow-y-auto">
      {side.map((val, i) => {
        const Icon = val.icon
 
@@ -56,7 +56,7 @@ export default function Sidebar() {
            {val.title === "Genres" ? (
              <button
                onClick={para}
-               className="cursor-pointer w-full flex items-center gap-4 py-4 text-[18px] text-zinc-300 transition-colors duration-200 hover:text-white"
+               className="cursor-pointer w-full flex items-center gap-3 md:gap-4 py-3 md:py-4 text-base md:text-[18px] text-zinc-300 transition-colors duration-200 hover:text-white"
              >
                <Icon size={22} />
                <span className="font-medium">{val.title}</span>
@@ -68,7 +68,7 @@ export default function Sidebar() {
            ) : (
              <Link
                href={val.href}
-               className="cursor-pointer w-full flex items-center gap-4 py-4 text-[18px] text-zinc-300 transition-colors duration-200 hover:text-white"
+               className="cursor-pointer w-full flex items-center gap-3 md:gap-4 py-3 md:py-4 text-base md:text-[18px] text-zinc-300 transition-colors duration-200 hover:text-white"
              >
                <Icon size={22} />
                <span className="font-medium">{val.title}</span>
@@ -80,10 +80,10 @@ export default function Sidebar() {
                className={`overflow-hidden transition-all duration-300 ease-in-out ${openAcc ? "max-h-96 opacity-100 mb-2" : "max-h-0 opacity-0"}`}
              >
                {genres.map((genre) => (
-                 <div key={genre.href} className="pl-10 py-2">
+                 <div key={genre.href} className="pl-6 md:pl-10 py-2">
                    <Link
                      href={genre.href}
-                     className="block text-[15px] text-zinc-400 transition-colors duration-200 hover:text-emerald-400"
+                     className="block text-sm md:text-[15px] text-zinc-400 transition-colors duration-200 hover:text-emerald-400"
                    >
                      {genre.title}
                    </Link>
@@ -92,7 +92,7 @@ export default function Sidebar() {
 
                <Link
                  href="/genres"
-                 className="block pl-10 py-2 text-[15px] text-zinc-400 transition-colors duration-200 hover:text-emerald-400"
+                 className="block pl-6 md:pl-10 py-2 text-sm md:text-[15px] text-zinc-400 transition-colors duration-200 hover:text-emerald-400"
                >
                  More...
                </Link>
