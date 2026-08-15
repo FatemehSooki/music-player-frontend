@@ -10,10 +10,10 @@ export default async function page() {
   const para = await res.json()
 
   return (
-    <div className='w-full min-h-screen bg-zinc-950 px-4 md:px-6 lg:px-8 py-6 md:py-8 lg:py-10'>
-      <h1 className='text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-6 lg:mb-8 capitalize'>new released</h1>
+    <div className='w-full min-h-screen bg-zinc-950 px-4 lg:px-8 py-6 lg:py-10 pb-24 lg:pb-10'>
+      <h1 className='text-2xl lg:text-4xl font-bold text-white mb-4 lg:mb-8 capitalize'>new released</h1>
       
-      <div className='flex flex-wrap justify-center sm:justify-evenly gap-4'>
+      <div className='flex flex-wrap justify-center lg:justify-evenly gap-4'>
         {para.data?.map((song, i) => (
           <SongCards 
             allSongs={para.data}

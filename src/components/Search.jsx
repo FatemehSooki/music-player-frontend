@@ -71,7 +71,7 @@ export default function Search() {
           setQuery(e.target.value)
         }} 
         value={query} 
-        className='p-2.5 sm:p-3 rounded-full flex h-12 sm:h-14 md:h-[60px] w-[85%] sm:w-[60%] md:w-[50%] lg:w-[40%] bg-zinc-700 pl-4 sm:pl-5 relative z-50 justify-center' 
+        className='p-2.5 sm:p-3 rounded-full flex h-12 sm:h-14 md:h-[60px] w-[85%] sm:w-[60%] md:w-[50%] lg:w-[40%] bg-zinc-700 pl-4 sm:pl-5 relative z-40 justify-center' 
         type="text" 
         placeholder='Search...' 
       />

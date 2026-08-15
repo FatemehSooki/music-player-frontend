@@ -30,12 +30,10 @@ export default async function page() {
   return (
     <main className='bg-zinc-950 w-full min-h-screen'>
       <div className='w-full mt-10 flex flex-col lg:flex-row justify-between gap-3 px-3'>
-        <div className="hidden lg:block shrink-0">
-          <Sidebar />
-        </div>
+        <Sidebar />
 
         {/* top songs */}
-        <div className='w-full lg:w-[73%] bg-zinc-900 rounded-2xl p-4 md:p-6 flex flex-col gap-6 md:gap-8 mb-10'>
+        <div className='w-full lg:w-[73%] bg-zinc-900 rounded-2xl p-4 md:p-6 lg:p-8 flex flex-col gap-6 md:gap-8 mb-10'>
           <section className='w-full flex flex-col gap-4'>
             <div className='flex items-center justify-between'>
               <div className='flex items-center gap-2 text-base md:text-[18px]'>
@@ -63,9 +61,6 @@ export default async function page() {
               ))}
             </div>
           </section>
-
-
-
 
           {/* new released */}
           <section className='w-full flex flex-col gap-4'>

@@ -21,7 +21,7 @@ export default async function page() {
  ]
 
  return (
-  <div className='w-full flex flex-wrap gap-4 md:gap-6 justify-center sm:justify-evenly my-6 md:my-10 px-4 md:px-6 lg:px-8 *:my-3'>
+  <div className='w-full flex flex-wrap gap-4 sm:gap-6 justify-center sm:justify-evenly my-6 sm:my-10 px-4 sm:px-0 *:my-3'>
    {genres.map((val, i) => {
     return (
      <Link key={val} href={`/genres/${val}`}>

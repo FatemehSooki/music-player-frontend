@@ -13,8 +13,8 @@ const decodedGenre = decodeURIComponent(genre)
   return song.genre === decodedGenre
  })
  return (
-  <div className='w-full flex flex-wrap justify-center sm:justify-evenly gap-3 px-4 md:px-6 lg:px-8'>
-   <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold my-6 md:my-10 ml-4 sm:ml-8 md:ml-12 lg:ml-16 w-full capitalize'>{decodedGenre}</h1>
+  <div className='w-full flex flex-wrap justify-center sm:justify-evenly gap-3 px-4 sm:px-0'>
+   <h1 className='text-3xl sm:text-4xl lg:text-[50px] font-bold my-6 sm:my-10 ml-4 sm:ml-8 md:ml-12 lg:ml-16 w-full capitalize'>{decodedGenre}</h1>
    {filterSong.map((val, i) => {
     return (
      <SongCards allSongs={filterSong} index={i} key={val.documentId} duration={val.duration} title={val.title} src={val.cover} artist={val.artist} audio={val.audio}   />

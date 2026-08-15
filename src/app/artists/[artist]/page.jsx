@@ -7,20 +7,19 @@ export default async function page({ params }) {
   const { artist } = await params
   const decodedArtist = decodeURIComponent(artist)
 
-
   const res = await fetch(`${STRAPI_URL}/api/songs?populate=*&pagination[pageSize]=100`)
   const para = await res.json()
 
   const artistSongs = para.data.filter((song)=> song.artist == decodedArtist)
 
   return (
-<div className='w-full min-h-screen bg-zinc-950 px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10'>
-  <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6 md:mb-8 capitalize'>{decodedArtist}</h1>
-  <div className='flex flex-wrap justify-center sm:justify-start gap-4'>
-    {artistSongs && artistSongs.map((song, i) => (
-     <SongCards allSongs={artistSongs} index={i} key={song.documentId} duration={song.duration} title={song.title} src={song.cover} artist={song.artist} audio={song.audio}   />
-    ))}
-  </div>
-</div>
+    <div className='w-full min-h-screen bg-zinc-950 px-4 sm:px-8 py-6 sm:py-10'>
+      <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-8 capitalize'>{decodedArtist}</h1>
+      <div className='flex flex-wrap justify-center sm:justify-start gap-4 px-4 sm:px-0'>
+        {artistSongs && artistSongs.map((song, i) => (
+         <SongCards allSongs={artistSongs} index={i} key={song.documentId} duration={song.duration} title={song.title} src={song.cover} artist={song.artist} audio={song.audio}   />
+        ))}
+      </div>
+    </div>
   )
 }
